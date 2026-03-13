@@ -23,18 +23,8 @@ export default function Preview() {
   const [isMuted, setIsMuted] = useState(false);
   const utteranceRef = useRef<SpeechSynthesisUtterance | null>(null);
 
-  if (!state) {
-    navigate("/studio");
-    return null;
-  }
-
-  const { prompt, duration, currency, price, script } = state;
-
-  // Extract spoken lines (remove [scene directions])
-  const spokenText = script
-    .replace(/\[.*?\]/g, "")
-    .replace(/\n{2,}/g, "\n")
-    .trim();
+  const script = state?.script || "";
+  const spokenText = script.replace(/\[.*?\]/g, "").replace(/\n{2,}/g, "\n").trim();
 
   const handlePlayPause = useCallback(() => {
     if (isPlaying) {
@@ -63,6 +53,13 @@ export default function Preview() {
     };
   }, []);
 
+  if (!state) {
+    navigate("/studio");
+    return null;
+  }
+
+  const { prompt, duration, currency, price } = state;
+
   const handlePayment = () => {
     window.speechSynthesis.cancel();
     navigate("/download", { state: { prompt, duration, currency, price, script } });
@@ -76,7 +73,6 @@ export default function Preview() {
 
         {/* Video Player Mock */}
         <div className="relative aspect-video rounded-xl border border-border bg-secondary overflow-hidden mb-6">
-          {/* Center play/pause */}
           <button
             onClick={handlePlayPause}
             className="absolute inset-0 flex items-center justify-center z-10 hover:bg-black/10 transition-colors"
@@ -96,12 +92,10 @@ export default function Preview() {
             </div>
           </button>
 
-          {/* Quality badge */}
           <Badge className="absolute top-3 left-3 z-20 bg-destructive/80 text-destructive-foreground">
             420p DEMO
           </Badge>
 
-          {/* Mute toggle */}
           <button
             onClick={(e) => {
               e.stopPropagation();
@@ -112,7 +106,6 @@ export default function Preview() {
             {isMuted ? <VolumeX className="h-4 w-4" /> : <Volume2 className="h-4 w-4" />}
           </button>
 
-          {/* Watermark overlay */}
           <div className="absolute inset-0 flex items-center justify-center opacity-10 pointer-events-none">
             <p className="font-display text-6xl font-bold rotate-[-30deg] text-foreground">
               AVATAR AI
@@ -123,7 +116,7 @@ export default function Preview() {
         {/* Script preview */}
         <div className="rounded-xl border border-border bg-card p-5 mb-6">
           <h2 className="font-display text-lg font-semibold mb-3">📝 Generated Script</h2>
-          <div className="max-h-48 overflow-y-auto pr-2 scrollbar-thin">
+          <div className="max-h-48 overflow-y-auto pr-2">
             <p className="text-sm text-muted-foreground whitespace-pre-wrap leading-relaxed">
               {script}
             </p>
