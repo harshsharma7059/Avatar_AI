@@ -10,8 +10,18 @@ import type { Currency, DurationTier } from "@/lib/pricing";
 import demoVideo1 from "@/assets/demo-video-1.mp4.asset.json";
 import demoVideo2 from "@/assets/demo-video-2.mp4.asset.json";
 import demoVideo3 from "@/assets/demo-video-3.mp4.asset.json";
+import demoVideo4 from "@/assets/demo-video-4.mp4.asset.json";
+import demoVideo5 from "@/assets/demo-video-5.mp4.asset.json";
+import demoVideo6 from "@/assets/demo-video-6.mp4.asset.json";
+import demoVideo7 from "@/assets/demo-video-7.mp4.asset.json";
+import demoVideo8 from "@/assets/demo-video-8.mp4.asset.json";
+import demoVideo9 from "@/assets/demo-video-9.mp4.asset.json";
 
-const DEMO_VIDEOS = [demoVideo1.url, demoVideo2.url, demoVideo3.url];
+const DEMO_VIDEOS = [
+  demoVideo1.url, demoVideo2.url, demoVideo3.url,
+  demoVideo4.url, demoVideo5.url, demoVideo6.url,
+  demoVideo7.url, demoVideo8.url, demoVideo9.url,
+];
 
 function pickDemoVideo(prompt: string): string {
   // Simple hash to deterministically pick a demo video based on prompt
