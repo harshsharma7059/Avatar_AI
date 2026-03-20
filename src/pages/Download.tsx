@@ -128,15 +128,15 @@ export default function DownloadPage() {
           </>
         ) : (
           <>
-            <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-green-500/20">
-              <CheckCircle className="h-10 w-10 text-green-500" />
+            <div className="mx-auto mb-6 flex h-20 w-20 items-center justify-center rounded-full bg-success/20">
+              <CheckCircle className="h-10 w-10 text-success" />
             </div>
             <h1 className="font-display text-3xl font-bold mb-2">Your Video is Ready!</h1>
             <p className="text-muted-foreground mb-8">4K Ultra HD with AI professional narration</p>
 
             <div className="rounded-xl border border-border bg-card p-6 space-y-4 mb-8">
               <div className="relative aspect-video rounded-lg bg-secondary flex items-center justify-center overflow-hidden">
-                <Badge className="absolute top-3 left-3 z-10 bg-green-500 text-white">
+                <Badge className="absolute top-3 left-3 z-10 bg-success text-success-foreground">
                   4K READY
                 </Badge>
                 <div className="text-center">
