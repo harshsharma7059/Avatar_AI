@@ -21,6 +21,7 @@ const DEMO_VIDEOS = [
   demoVideo1.url, demoVideo2.url, demoVideo3.url,
   demoVideo4.url, demoVideo5.url, demoVideo6.url,
   demoVideo7.url, demoVideo8.url, demoVideo9.url,
+  "/demo-video-10.mp4", "/demo-video-11.mp4",
 ];
 
 function pickDemoVideo(prompt: string): string {
