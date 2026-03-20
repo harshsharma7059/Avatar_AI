@@ -16,12 +16,26 @@ import demoVideo6 from "@/assets/demo-video-6.mp4.asset.json";
 import demoVideo7 from "@/assets/demo-video-7.mp4.asset.json";
 import demoVideo8 from "@/assets/demo-video-8.mp4.asset.json";
 import demoVideo9 from "@/assets/demo-video-9.mp4.asset.json";
+import demoVideo12 from "@/assets/demo-video-12.mp4.asset.json";
+import demoVideo13 from "@/assets/demo-video-13.mp4.asset.json";
+import demoVideo14 from "@/assets/demo-video-14.mp4.asset.json";
+import demoVideo15 from "@/assets/demo-video-15.mp4.asset.json";
+import demoVideo16 from "@/assets/demo-video-16.mp4.asset.json";
+import demoVideo17 from "@/assets/demo-video-17.mp4.asset.json";
+import demoVideo18 from "@/assets/demo-video-18.mp4.asset.json";
+import demoVideo19 from "@/assets/demo-video-19.mp4.asset.json";
+import demoVideo20 from "@/assets/demo-video-20.mp4.asset.json";
+import demoVideo21 from "@/assets/demo-video-21.mp4.asset.json";
 
 const DEMO_VIDEOS = [
   demoVideo1.url, demoVideo2.url, demoVideo3.url,
   demoVideo4.url, demoVideo5.url, demoVideo6.url,
   demoVideo7.url, demoVideo8.url, demoVideo9.url,
   "/demo-video-10.mp4", "/demo-video-11.mp4",
+  demoVideo12.url, demoVideo13.url, demoVideo14.url,
+  demoVideo15.url, demoVideo16.url, demoVideo17.url,
+  demoVideo18.url, demoVideo19.url, demoVideo20.url,
+  demoVideo21.url,
 ];
 
 function pickDemoVideo(prompt: string): string {
