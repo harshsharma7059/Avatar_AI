@@ -1,11 +1,11 @@
 import { Button } from "@/components/ui/button";
-import { formatPrice } from "@/lib/pricing";
+import { formatPrice, type Currency } from "@/lib/pricing";
 import { Crown, Lock, Shield } from "lucide-react";
 
 interface OrderSummaryProps {
   prompt: string;
   duration: string;
-  currency: string;
+  currency: Currency;
   price: number;
   onPay: () => void;
 }
