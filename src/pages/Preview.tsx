@@ -63,7 +63,7 @@ export default function Preview() {
     return null;
   }
 
-  const { prompt, duration, currency, price, script } = state;
+  const { prompt, duration, currency, price, script, thumbnailUrl } = state;
   const spokenText = script.replace(/\[.*?\]/g, "").replace(/\n{2,}/g, "\n").trim();
   const videoSrc = pickDemoVideo(prompt);
 
