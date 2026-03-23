@@ -50,6 +50,7 @@ interface PreviewState {
   currency: Currency;
   price: number;
   script: string;
+  thumbnailUrl?: string;
 }
 
 export default function Preview() {
