@@ -68,6 +68,28 @@ export default function Studio() {
 
       const { script } = await response.json();
 
+      // Start thumbnail generation in background (non-blocking)
+      let thumbnailUrl: string | null = null;
+      try {
+        const thumbRes = await fetch(
+          `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/generate-thumbnail`,
+          {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${import.meta.env.VITE_SUPABASE_PUBLISHABLE_KEY}`,
+            },
+            body: JSON.stringify({ prompt }),
+          }
+        );
+        if (thumbRes.ok) {
+          const thumbData = await thumbRes.json();
+          thumbnailUrl = thumbData.thumbnailUrl || null;
+        }
+      } catch {
+        // Thumbnail is optional, continue without it
+      }
+
       clearInterval(progressInterval);
       setProgress(100);
       setProgressStep("Done! Redirecting to preview…");
@@ -81,6 +103,7 @@ export default function Studio() {
           currency,
           price: PRICING[duration][currency],
           script,
+          thumbnailUrl,
         },
       });
     } catch (err: any) {
