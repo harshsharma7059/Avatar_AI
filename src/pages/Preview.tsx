@@ -81,7 +81,7 @@ export default function Preview() {
           <p className="text-muted-foreground mt-1">Review the demo and script before ordering your custom 4K render</p>
         </div>
 
-        <VideoPlayer videoSrc={videoSrc} spokenText={spokenText} />
+        <VideoPlayer videoSrc={videoSrc} spokenText={spokenText} posterUrl={thumbnailUrl || undefined} />
 
         <ScriptPreview script={script} />
 
